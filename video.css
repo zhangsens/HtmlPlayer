@@ -1,0 +1,85 @@
+.fl {
+    display: flex;
+}
+
+.player {
+    background-color: #000000;
+}
+
+.playstatus {
+    position: absolute;
+    background: url("center.jpg") -285px -198px;
+    width: 77px;
+    height: 49px;
+    margin-top: -60px;
+    margin-left: 10px;
+}
+
+.controls {
+    background-color: #aaaaaa;
+    height: 30px;
+    line-height: 30px;
+}
+
+.play {
+    background: url("center.jpg") -393px -1193px;
+    width: 30px;
+}
+
+.stop {
+    background: url("center.jpg") -430px -1193px;
+    width: 30px;
+}
+
+.timeline {
+    flex-grow: 30;
+}
+
+.vtime {
+    position: relative;
+    top: 12px;
+    height: 10px;
+    background-color: #cccccc;
+}
+
+.played {
+    position: relative;
+    height: 10px;
+    top: 2px;
+    background-color: #66ccff;
+    z-index: 100;
+}
+
+.sound {
+    background: url("center.jpg") -552px -1193px;
+    width: 30px;
+}
+
+.volume {
+    display: none;
+    position: relative;
+    top: -100px;
+    height: 100px;
+    background-color: #aaaaaa;
+}
+
+.volume_1 {
+    width: 4px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.volume_2 {
+    width: 4px;
+    height: 20px;
+    margin: 0 auto;
+    background-color: #000;
+    position: relative;
+    top: -100px;
+}
+
+.fullscreen {
+    background: url("center.jpg") -334px -1193px;
+    width: 30px;
+}
