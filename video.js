@@ -1,5 +1,5 @@
 var config = {
-    width: "100%",
+    width: "90%",
     heigth: "",
     background: "#000000",
     playbackRate: 1,
@@ -66,6 +66,7 @@ function Zplayer(videoSrc, target) {
     video.src = videoSrc;
     video.style.width = config.width;
     video.style.background = config.background;
+    video.style.margin = "0 5%";
     video.controls = config.controls;
     video.volume = config.volume;
     video.playbackRate = config.playbackRate;
@@ -81,12 +82,28 @@ function Zplayer(videoSrc, target) {
         playcontrols();
     }
 
-    timeline.onmouseup = function(event) {
-        if (event.button == 0) {
-            video.currentTime = video.duration * event.layerX / timeline.offsetWidth;
-            video.play();
+    timeline.onmousedown = function(event) {
+        if (event.button == 0 && event.target != timeline) {
+            config.button_l = 1;
         }
     }
+
+    timeline.onmousemove = function(event) {
+        if (event.button == 0 && event.target != timeline && config.button_l) {
+            video.currentTime = video.duration * event.layerX / timeline.offsetWidth;
+        }
+    }
+
+    document.body.onmouseup = function(event) {
+        if (event.button == 0 && event.target != timeline && config.button_l) {
+            video.currentTime = video.duration * event.layerX / timeline.offsetWidth;
+            video.play();
+            play.className = "stop";
+            playstatus.className = "";
+            config.button_l = 0;
+        }
+    }
+
     sound.onmouseenter = function() {
         volume.style.display = "block";
     }
@@ -102,6 +119,10 @@ function Zplayer(videoSrc, target) {
 
     fullscreen.onclick = function() {
         video.webkitRequestFullScreen();
+    }
+
+    playstatus.onclick = function() {
+        playcontrols();
     }
 
     function playcontrols() {

@@ -43,6 +43,7 @@
 }
 
 .played {
+    display: block;
     position: relative;
     height: 10px;
     top: 2px;
